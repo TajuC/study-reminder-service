@@ -1,0 +1,75 @@
+{
+  "timezone": "Asia/Jerusalem",
+  "semester": {
+    "start_date": "2026-03-15",
+    "end_date": "2026-07-01"
+  },
+  "skip_dates": [],
+  "reminder_offsets_minutes": [10, 5, 1, 0],
+  "classes": {
+    "Sunday": [
+      {
+        "name": "מתמטיקה - מקוצרת",
+        "name_en": "Math - Shortened",
+        "start": "10:00",
+        "end": "11:30",
+        "room": "5-103"
+      },
+      {
+        "name": "אנגלית טרום בסיסי א'+ב' - מקוצרת",
+        "name_en": "English Pre-Basic A+B - Shortened",
+        "start": "12:00",
+        "end": "15:30",
+        "room": "5-103"
+      }
+    ],
+    "Monday": [
+      {
+        "name": "מתמטיקה - מקוצרת",
+        "name_en": "Math - Shortened",
+        "start": "08:00",
+        "end": "11:30",
+        "room": "5-112"
+      },
+      {
+        "name": "אנגלית טרום בסיסי א'+ב' - מקוצרת",
+        "name_en": "English Pre-Basic A+B - Shortened",
+        "start": "12:00",
+        "end": "15:30",
+        "room": "5-112"
+      }
+    ],
+    "Wednesday": [
+      {
+        "name": "מתמטיקה - מקוצרת",
+        "name_en": "Math - Shortened",
+        "start": "08:00",
+        "end": "11:30",
+        "room": "5-103"
+      },
+      {
+        "name": "אנגלית טרום בסיסי א'+ב' - מקוצרת",
+        "name_en": "English Pre-Basic A+B - Shortened",
+        "start": "12:00",
+        "end": "15:30",
+        "room": "5-103"
+      }
+    ],
+    "Thursday": [
+      {
+        "name": "סטטיסטיקה מקוצרת",
+        "name_en": "Statistics - Shortened",
+        "start": "08:00",
+        "end": "11:30",
+        "room": "5-102"
+      },
+      {
+        "name": "הבעה - מקוצרת",
+        "name_en": "Expression / Writing - Shortened",
+        "start": "12:00",
+        "end": "15:30",
+        "room": "5-102"
+      }
+    ]
+  }
+}

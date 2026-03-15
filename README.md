@@ -30,14 +30,13 @@ python -m app.main
 
 Set `DRY_RUN=true` in `.env` to test without sending. On Windows, use `scripts\install_windows_task.ps1` (as Administrator) to run at logon.
 
-### Run 24/7 in the cloud (one-time setup)
+### Run in the cloud (100% free, no card)
 
-1. Sign up at [fly.io](https://fly.io) and install the CLI. Run `fly auth login` (or create a token in the dashboard).
-2. In your repo: **Settings → Secrets and variables → Actions**. Add:
-   - `FLY_API_TOKEN` — from `fly auth token`
-   - `DISCORD_WEBHOOK_URL` — your Discord webhook URL  
-   Optionally add `FLY_APP_NAME` if the default name is taken (e.g. `my-study-reminder`).
-3. Push to `main` or run the **Deploy to Fly.io** workflow manually. The app will be deployed and run 24/7. Each push to `main` redeploys automatically.
+Scheduled run every 5 minutes. No sign-up or payment anywhere.
+
+1. Keep the repo **public** (Actions minutes are free for public repos).
+2. In the repo: **Settings → Secrets and variables → Actions**. Add one secret: `DISCORD_WEBHOOK_URL` (your Discord webhook URL).
+3. Run **Reminder check (free, every 5 min)** once from the Actions tab (or wait for the next run). It will then run automatically every 5 minutes. No duplicates: state is cached between runs. (Reminders are checked every 5 min, so they can be up to 5 minutes late.)
 
 ### Requirements
 
@@ -71,11 +70,13 @@ python -m app.main
 
 הגדר `DRY_RUN=true` ב-`.env` לבדיקה בלי שליחה. ב-Windows אפשר להריץ את `scripts\install_windows_task.ps1` (כמנהל) כדי שהשירות יעלה בהתחברות.
 
-### הרצה 24/7 בענן (הגדרה חד־פעמית)
+### הרצה בענן (חינם לגמרי, בלי כרטיס אשראי)
 
-1. הירשם ב־[fly.io](https://fly.io) והתקן את ה-CLI. הרץ `fly auth login` (או צור token בדשבורד).
-2. ב־**Settings → Secrets and variables → Actions** הוסף: `FLY_API_TOKEN` (מ־`fly auth token`), `DISCORD_WEBHOOK_URL` (כתובת ה-webhook). אופציונלי: `FLY_APP_NAME` אם השם כבר תפוס.
-3. דחיפה ל־`main` או הרצת workflow **Deploy to Fly.io** תעלה את האפליקציה ל־24/7. כל דחיפה ל־`main` תעדכן אוטומטית.
+הרצה מתוזמנת כל 5 דקות, בלי הרשמה או תשלום.
+
+1. השאר את ה-repo **ציבורי** (דקות Actions חינם).
+2. ב־**Settings → Secrets and variables → Actions** הוסף סוד אחד: `DISCORD_WEBHOOK_URL` (כתובת ה-webhook).
+3. הפעל פעם אחת את **Reminder check (free, every 5 min)** בלשונית Actions (או חכה לריצה הבאה). מהריצה הבאה זה ירוץ אוטומטית כל 5 דקות. בלי כפילויות: המצב נשמר בין ריצות.
 
 ### דרישות
 

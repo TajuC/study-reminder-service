@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import signal
 import sys
 import time
@@ -26,6 +27,10 @@ def _handle_signal(signum, _frame):
 def main() -> None:
     global _running
 
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--once", action="store_true", help="Run one tick then exit (for cron)")
+    args = parser.parse_args()
+
     config = load_config()
     setup_logging(config.log_dir, config.log_level)
 
@@ -42,6 +47,15 @@ def main() -> None:
     state = StateStore(config.db_path)
     webhook = WebhookClient(config.webhook_url, dry_run=config.dry_run)
     engine = ReminderEngine(config, schedule, state, webhook)
+
+    if args.once:
+        try:
+            engine.tick()
+        finally:
+            state.close()
+            webhook.close()
+        logger.info("One tick done.")
+        return
 
     signal.signal(signal.SIGINT, _handle_signal)
     signal.signal(signal.SIGTERM, _handle_signal)

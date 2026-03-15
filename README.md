@@ -40,6 +40,8 @@ Scheduled run every 5 minutes. No sign-up or payment anywhere.
 
 **When does it run?** The workflow runs **every 5 minutes** on a schedule (you may see runs with event “schedule” in the Actions tab; runs from “Commit pushed” are from editing the workflow file). Each run checks the current time: **Discord messages are only sent when a reminder is actually due** (10, 5, or 1 minute before a class, or at class start). So you’ll see workflow runs in Actions every 5 min, but messages in Discord only around your class times.
 
+**Where is "every 5 minutes" defined?** In the workflow file, the line `cron: '2-59/5 * * * *'` under `schedule:` tells **GitHub's servers** to trigger the workflow at :02, :07, :12, :17, … UTC (every 5 minutes). GitHub's scheduler does this automatically; no one has to click anything. If **schedule runs never appear** (only manual or push runs), GitHub's cron can be unreliable for some repos. **Fallback:** use a free external cron (e.g. [cron-job.org](https://cron-job.org)) to run every 5 minutes and call the GitHub API: `POST https://api.github.com/repos/OWNER/REPO/actions/workflows/reminder-cron.yml/dispatches` with header `Authorization: token YOUR_PAT` and body `{"ref":"main"}` (PAT needs permission to trigger workflows).
+
 ### Requirements
 
 Python 3.12+. Needs `requests`, `python-dotenv`, and `tzdata` (for Windows timezone support).

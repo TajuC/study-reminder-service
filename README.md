@@ -65,15 +65,3 @@ python -m app.main
 ### דרישות
 
 Python 3.12+. נדרשים `requests`, `python-dotenv` ו-`tzdata` (לתמיכה באזור זמן ב-Windows).
-
----
-
-## Publish to GitHub
-
-Create a new repository on GitHub, then run (use your username and repo name):
-
-```bash
-git remote add origin https://github.com/YOUR_USERNAME/study-reminder-service.git
-git branch -M main
-git push -u origin main
-```

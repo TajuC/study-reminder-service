@@ -36,7 +36,7 @@ Scheduled run every 5 minutes. No sign-up or payment anywhere.
 
 1. Keep the repo **public** (Actions minutes are free for public repos).
 2. In the repo: **Settings → Secrets and variables → Actions**. Add one secret: `DISCORD_WEBHOOK_URL` (your Discord webhook URL).
-3. Run **Reminder check (free, every 5 min)** once from the Actions tab (or wait for the next run). It will then run automatically every 5 minutes. No duplicates: state is cached between runs. (Reminders are checked every 5 min, so they can be up to 5 minutes late.)
+3. Run **Reminder check (free, every 5 min)** once from the Actions tab (or wait for the next run). It will then run automatically every 5 minutes. No duplicates: state is cached between runs. (Reminders are checked every 5 min, so they can be up to 5 minutes late.) Your PC can be off; the workflow runs on GitHub’s servers.
 
 ### Requirements
 
@@ -76,7 +76,7 @@ python -m app.main
 
 1. השאר את ה-repo **ציבורי** (דקות Actions חינם).
 2. ב־**Settings → Secrets and variables → Actions** הוסף סוד אחד: `DISCORD_WEBHOOK_URL` (כתובת ה-webhook).
-3. הפעל פעם אחת את **Reminder check (free, every 5 min)** בלשונית Actions (או חכה לריצה הבאה). מהריצה הבאה זה ירוץ אוטומטית כל 5 דקות. בלי כפילויות: המצב נשמר בין ריצות.
+3. הפעל פעם אחת את **Reminder check (free, every 5 min)** בלשונית Actions (או חכה לריצה הבאה). מהריצה הבאה זה ירוץ אוטומטית כל 5 דקות. בלי כפילויות: המצב נשמר בין ריצות. המחשב שלך יכול להיות כבוי — ה-workflow רץ על שרתי GitHub. (תדירות המינימום של GitHub היא 5 דקות, גם עם Pro/Education.)
 
 ### דרישות
 

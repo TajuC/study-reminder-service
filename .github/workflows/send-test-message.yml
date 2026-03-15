@@ -1,0 +1,21 @@
+name: Send test message to Discord
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send test message to Discord
+        run: |
+          curl -sS -X POST "${{ secrets.DISCORD_WEBHOOK_URL }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "embeds": [{
+                "title": "✅ Reminder service – test",
+                "description": "Study reminder service is running correctly. You will get reminders 10 min, 5 min, 1 min before class and at start time.",
+                "color": 3447003,
+                "footer": {"text": "Sent from GitHub Actions – you can delete this workflow after verifying."}
+              }]
+            }'

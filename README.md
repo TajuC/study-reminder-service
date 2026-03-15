@@ -38,6 +38,8 @@ Scheduled run every 5 minutes. No sign-up or payment anywhere.
 2. In the repo: **Settings → Secrets and variables → Actions**. Add one secret: `DISCORD_WEBHOOK_URL` (your Discord webhook URL).
 3. Run **Reminder check (free, every 5 min)** once from the Actions tab (or wait for the next run). It will then run automatically every 5 minutes. No duplicates: state is cached between runs. (Reminders are checked every 5 min, so they can be up to 5 minutes late.) Your PC can be off; the workflow runs on GitHub’s servers. **Note:** Scheduled runs use an offset cron (`2-59/5`) to avoid GitHub’s high load at the top of each hour; they can still be delayed. If no schedule run appears after 20+ minutes, run it once manually (Run workflow) or push a change to the workflow file to re-register the schedule.
 
+**When does it run?** The workflow runs **every 5 minutes** on a schedule (you may see runs with event “schedule” in the Actions tab; runs from “Commit pushed” are from editing the workflow file). Each run checks the current time: **Discord messages are only sent when a reminder is actually due** (10, 5, or 1 minute before a class, or at class start). So you’ll see workflow runs in Actions every 5 min, but messages in Discord only around your class times.
+
 ### Requirements
 
 Python 3.12+. Needs `requests`, `python-dotenv`, and `tzdata` (for Windows timezone support).

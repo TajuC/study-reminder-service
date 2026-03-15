@@ -8,16 +8,17 @@ on:
     branches: [main]
     paths: ['.github/workflows/reminder-cron.yml']
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   remind:
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4
 
-      - name: Restore reminder state
-        uses: actions/cache/restore@v4
+      - name: Cache reminder state
+        uses: actions/cache@v4
         with:
           path: data
           key: reminder-state-${{ runner.os }}
@@ -35,10 +36,4 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           DRY_RUN: "false"
           LOG_LEVEL: INFO
-        run: python -m app.main --once
-
-      - name: Save reminder state
-        uses: actions/cache/save@v4
-        with:
-          path: data
-          key: reminder-state-${{ runner.os }}
+        run: mkdir -p data && python -m app.main --once

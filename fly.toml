@@ -1,0 +1,12 @@
+app = "study-reminder-svc"
+
+[build]
+
+[env]
+  DRY_RUN = "false"
+  LOG_LEVEL = "INFO"
+  POLL_INTERVAL_SECONDS = "20"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"

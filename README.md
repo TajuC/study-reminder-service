@@ -36,7 +36,7 @@ Scheduled run every 5 minutes. No sign-up or payment anywhere.
 
 1. Keep the repo **public** (Actions minutes are free for public repos).
 2. In the repo: **Settings → Secrets and variables → Actions**. Add one secret: `DISCORD_WEBHOOK_URL` (your Discord webhook URL).
-3. Run **Reminder check (free, every 5 min)** once from the Actions tab (or wait for the next run). It will then run automatically every 5 minutes. No duplicates: state is cached between runs. (Reminders are checked every 5 min, so they can be up to 5 minutes late.) Your PC can be off; the workflow runs on GitHub’s servers.
+3. Run **Reminder check (free, every 5 min)** once from the Actions tab (or wait for the next run). It will then run automatically every 5 minutes. No duplicates: state is cached between runs. (Reminders are checked every 5 min, so they can be up to 5 minutes late.) Your PC can be off; the workflow runs on GitHub’s servers. **Note:** Scheduled runs can be delayed by GitHub (sometimes 5–15 minutes); if you don’t see a new run right away, wait a bit or run it manually again.
 
 ### Requirements
 
